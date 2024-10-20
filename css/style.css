@@ -1,0 +1,79 @@
+@import url("common.css");
+
+
+img{
+    width: 50px;
+}
+
+
+#wrap{}
+main{}
+
+/* 좌측 사이드바 */
+header{}
+/* 로고 */
+header #logo{}
+header #logo a{}
+header #logo a img{}
+header #logo h1{}
+header #logo h1 a{}
+
+/* 카테고리,검색바 */
+header nav{}
+header nav ul{}
+header nav ul li{}
+header nav ul li a{}
+header nav .search{}
+
+/* ------------------------------------- */
+
+/* 메인컨텐츠 */
+.visual-content{}
+
+/* 이미지 노출 게시판 */
+.new-recipe{}
+.new-recipe h2{}
+
+.new-recipe .visual{}
+.new-recipe .visual figure{}
+.new-recipe .visual figure a{}
+.new-recipe .visual figure a img{}
+.new-recipe .visual figure span{}
+.new-recipe .visual figure figcaption{}
+.new-recipe .visual figure figcaption p{}
+.new-recipe .visual figure figcaption span{}
+
+
+/* 작성자,제목만 보이는 게시판과 가게추천 */
+
+.new-content{}
+
+/* 게시판리스트 */
+.favorite-recipe{}
+.favorite-recipe h3{}
+
+.favorite-recipe .favorite-list{}
+.favorite-recipe .favorite-list ul{}
+.favorite-recipe .favorite-list ul li{}
+
+.favorite-recipe .favorite-list ul li img{}
+.favorite-recipe .favorite-list ul li span{}
+
+.favorite-recipe .favorite-list ul li strong{}
+.favorite-recipe .favorite-list ul li small{}
+.favorite-recipe .favorite-list ul li a{}
+
+
+
+/* 추천 가게 */
+
+
+
+
+
+/* ------------------------------------- */
+
+
+
+/* 사이드컨텐츠 */
+
