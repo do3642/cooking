@@ -61,12 +61,25 @@ header nav .search{}
 
 .favorite-recipe .favorite-list ul li strong{}
 .favorite-recipe .favorite-list ul li small{}
+
+/* 상세보기버튼으로 쓸거고 포지션으로 띄울꺼 */
 .favorite-recipe .favorite-list ul li a{}
 
 
 
-/* 추천 가게 */
+/* 이달의 맛집 */
 
+.store{}
+.store .store-title{}
+.store .store-title h4{}
+.store .store-title a{}
+
+.store .store-list{}
+/* 백그라운드로 썸네일 채울예정 */
+.store .store-list div{}
+.store .store-list div a{}
+.store .store-list div span:first-child{}
+.store .store-list div span:last-child{}
 
 
 
@@ -76,4 +89,25 @@ header nav .search{}
 
 
 /* 사이드컨텐츠 */
+.side-content{}
 
+/* 로그인 관련 */
+.side-content .account{}
+.side-content .account div{}
+.side-content .account p{}
+.side-content .account p span{}
+
+
+/* 프리미엄 가게 */
+
+.side-content .premium-store{}
+.side-content .premium-store h5{}
+.side-content .premium-store .premium-list{}
+.side-content .premium-store .premium-list .premium-title{}
+.side-content .premium-store .premium-list .premium-title span{}
+.side-content .premium-store .premium-list .premium-title small{}
+
+.side-content .premium-store .premium-list figure{}
+.side-content .premium-store .premium-list figure a{}
+.side-content .premium-store .premium-list figure a img{}
+.side-content .premium-store .premium-list figure figcaption{}
