@@ -5,20 +5,24 @@ img{
     width: 50px;
 }
 
-
-#wrap{}
+body{
+    background-color: rgba(0,0,0,.5);
+}
+#wrap{
+    
+}
 main{
     width: 95%;
     margin:auto;
     margin-top:30px;
-    background-color: rgba(0,0,0,.2);
-    display: flex;
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 200px auto 250px;
 }
 
 /* 좌측 사이드바 */
 header{
-    width: 200px;
+    /* width: 200px; */
     height: 90vh;
     background-color: rgb(73, 57, 113);
     border-radius: 15px 0 0 15px;
@@ -138,20 +142,55 @@ header nav .search-box .search-btn{
 /* ------------------------------------- */
 
 /* 메인컨텐츠 */
-.visual-content{}
+.visual-content{
+    /* width: 60vw; */
+    padding: 15px;
+    background-color: #fff;
+}
 
 /* 이미지 노출 게시판 */
-.new-recipe{}
+.new-recipe{
+    background-color: #f6f7fb;
+    padding: 10px;
+}
 .new-recipe h2{}
 
-.new-recipe .visual{}
-.new-recipe .visual figure{}
-.new-recipe .visual figure a{}
-.new-recipe .visual figure a img{}
-.new-recipe .visual figure span{}
-.new-recipe .visual figure figcaption{}
-.new-recipe .visual figure figcaption p{}
-.new-recipe .visual figure figcaption span{}
+.new-recipe .visual{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    column-gap: 10px;
+}
+.new-recipe .visual figure{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.new-recipe .visual figure:nth-of-type(3){
+    grid-area: 1 / 2 / 3 / 4;
+}
+.new-recipe .visual figure a{
+    width: 100%;
+    height: 100%;
+}
+.new-recipe .visual figure a img{
+    width: 100%;
+    height: 100%;
+}
+.new-recipe .visual figure > span{
+    position: absolute;right: 0;bottom: 0;
+    font-family: 'Pretendard-Regular';
+}
+.new-recipe .visual figure figcaption{
+    position: absolute;left: 0;bottom: 0;
+   
+}
+.new-recipe .visual figure figcaption p{
+    font-family: 'Pretendard-Regular';
+}
+.new-recipe .visual figure figcaption span{
+    font-family: 'Pretendard-Regular';
+}
 
 
 /* 작성자,제목만 보이는 게시판과 가게추천 */
@@ -199,7 +238,12 @@ header nav .search-box .search-btn{
 
 
 /* 사이드컨텐츠 */
-.side-content{}
+.side-content{
+    background-color: rgba(0,0,0,.1);
+    padding: 15px;
+    border-radius: 0 15px 15px 0;
+    
+}
 
 /* 로그인 관련 */
 .side-content .account{}
