@@ -151,23 +151,39 @@ header nav .search-box .search-btn{
 /* 이미지 노출 게시판 */
 .new-recipe{
     background-color: #f6f7fb;
-    padding: 10px;
+    padding: 20px;
+    border-radius: 15px;
 }
 .new-recipe h2{}
 
 .new-recipe .visual{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
     grid-template-rows: repeat(2, 150px);
+    grid-auto-rows: 150px;
     column-gap: 10px;
+    row-gap: 5px;
 }
 .new-recipe .visual figure{
     width: 100%;
-    height: 100%;
+    height: auto; /* 부모 박스의 높이를 자동으로 설정 */
+    /* max-height: 200px; 최대 높이를 제한하여 과도한 확대 방지 */
     position: relative;
+    overflow: hidden;
+}
+.new-recipe .visual figure::before{
+    content: '';
+    position:absolute;
+    left: 0; top:0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, transparent, rgba(237, 177, 47, 0.5));
 }
 .new-recipe .visual figure:nth-of-type(3){
     grid-area: 1 / 2 / 3 / 4;
+}
+.new-recipe .visual figure:last-of-type{
+    grid-area: 2 / 4 / 2 / 6;
 }
 .new-recipe .visual figure a{
     width: 100%;
@@ -175,21 +191,42 @@ header nav .search-box .search-btn{
 }
 .new-recipe .visual figure a img{
     width: 100%;
-    height: 100%;
+    height: auto; /* 이미지의 비율을 유지하면서 부모 박스의 높이에 맞춤 */
+    max-height: 100%; /* 이미지의 높이가 부모 박스를 넘지 않도록 */
+    object-fit: cover; /* 이미지가 잘리지 않고 부모 박스에 맞도록 */
+    object-position: center; /* 이미지를 중앙에 배치 */
 }
 .new-recipe .visual figure > span{
-    position: absolute;right: 0;bottom: 0;
+    position: absolute;right: 2%;bottom: 3%;
     font-family: 'Pretendard-Regular';
+    color: #fff;
+    z-index: 10;
 }
 .new-recipe .visual figure figcaption{
     position: absolute;left: 0;bottom: 0;
+    color: #fff;
    
+}
+.new-recipe .visual figure > span::before{
+    content: '';
+    position: absolute;left: 0;top: 0;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    z-index: -1;
+    transform: scale(1.1);
+    
 }
 .new-recipe .visual figure figcaption p{
     font-family: 'Pretendard-Regular';
 }
 .new-recipe .visual figure figcaption span{
     font-family: 'Pretendard-Regular';
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100px;
 }
 
 
