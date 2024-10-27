@@ -9,6 +9,7 @@ html,body{
   }
   a{
     text-decoration: none;
+    color: #333;
   }
   span,em,strong,a{display: inline-block;}
   *{
