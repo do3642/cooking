@@ -11,6 +11,7 @@ navItems.forEach((navItem, i) => {
 
 
 
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
   const elements = document.querySelectorAll(".favorite-recipe .favorite-list ul li span");
 
@@ -36,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+=======
+>>>>>>> 63a4f4e5e76529a8c26bde75f480937d49690562
 
 
 

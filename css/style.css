@@ -237,7 +237,10 @@ header nav .search-box .search-btn:hover {
     position: relative;
     overflow: hidden;
     border-radius: 15px;
+<<<<<<< HEAD
     cursor: pointer;
+=======
+>>>>>>> 63a4f4e5e76529a8c26bde75f480937d49690562
     
 }
 .new-recipe .visual figure:hover a{
