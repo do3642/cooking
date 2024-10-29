@@ -8,9 +8,9 @@
                         <a href="#"><img src="/img/kakao_login_medium_narrow.png" alt="카카오 로그인"></a>
                         <a href="#"><img src="/img/btn_google_signin_dark_normal_web.png" alt="구글 로그인"></a>
                         <p>
-                            <span>회원가입 |</span>
-                            <span>아이디 찾기 |</span>
-                            <span>비밀번호 찾기</span>
+                            <a href="/auth/register">회원가입 |</a>
+                            <a href="#">아이디 찾기 |</a>
+                            <a href="#">비밀번호 찾기</a>
                         </p>
                     </article>
 
