@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+.visual-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/*------------------------------------------*/
+
+/* 로그인폼 css 시작*/
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(255, 183, 98); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: rgb(245, 163, 78); 
+}
+
+
+input:focus {
+    border: 2px solid #8a6fb5; /* 덜 튀는 보라색 테두리 */
+    background-color: rgba(138, 111, 181, 0.1); /* 더 부드러운 연한 보라색 배경 */
+    outline: none; /* 기본 아웃라인 제거 */
+    box-shadow: none; /* 그림자 효과 제거 */
+}
+
+/*------------------------------------------*/
+/* 회원가입,아이디찾기,비밀번호찾기 링크 부분*/
+.extra-links {
+    display: flex;
+    gap: 5px; 
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.extra-links a {
+    margin: 5px;
+    font-size: 0.8em;
+    color: #aaa;
+    text-decoration: none;
+    white-space: nowrap;
+    
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+    color: rgb(43, 116, 177); 
+}
+
+/*------------------------------------------*/
+/* 로그인창 하단 copyright*/
+.copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    color: #333;
+    padding: 10px 0;
+    background-color: #f9f9f9; 
+}
+
+.footer-links,
+.social-media {
+    margin-top: 5px;
+    
+}
+
+.social-media a,
+.footer-links a {
+    text-decoration: none;
+    margin: 0 5px;
+     color: #004080;
+}
+
+.social-media a:hover,
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #2c3e50;
+}
+
+.social-media a {
+    margin: 0 10px;
+    font-size: 24px; 
+}
