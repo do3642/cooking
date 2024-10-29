@@ -7,6 +7,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 <section class="visual-content">
+
   <div class="login-container">
         <h2>로그인</h2>
         <form action="/login" method="post">
@@ -21,7 +22,7 @@
             <button type="submit" class="login-btn">로그인</button>
         </form>
         <div class="extra-links">
-            <a href="/register">회원가입</a>
+            <a href="/auth/register">회원가입</a>
             <a href="/find-username">아이디 찾기</a>
             <a href="/forgot-password">비밀번호 찾기</a>
         </div>

@@ -13,4 +13,13 @@ public class ClientController {
 		return "client/login";
 	}
 	
+	
+	
+//	회원가입 이동
+	@GetMapping("/auth/register")
+	public String registerPage() {
+		return "client/register";
+	}
+	
+	
 }
