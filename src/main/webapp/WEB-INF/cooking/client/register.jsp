@@ -10,30 +10,30 @@
     <form action="/register" method="post" class="registration-form" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="username">아이디</label>
-            <input type="text" id="username" name="username" required class="form-input"/>
+            <input type="text" id="username" name="username" required class="form-input" autocomplete="username">
             <span></span>
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>
-            <input type="password" id="password" name="password" required class="form-input"/>
+            <input type="password" id="password" name="password" required class="form-input" autocomplete="current-password">
             <span></span>
         </div>
         <div class="form-group">
             <label for="nickname">닉네임</label>
-            <input type="text" id="nickname" name="nickname" required class="form-input"/>
+            <input type="text" id="nickname" name="nickname" required class="form-input">
             <span></span>
         </div>
         <div class="form-group">
             <label for="email">이메일</label>
-            <input type="email" id="email" name="email" required class="form-input"/>
+            <input type="email" id="email" name="email" required class="form-input">
             <span></span>
         </div>
-        <div class="form-group">
-		    <label for="phone">핸드폰 번호</label>
+		<div class="form-group">
+		    <label for="phone-part1">핸드폰 번호</label>
 		    <div class="phone-input">
-		        <input type="text" id="phone-part1" maxlength="3" required class="form-input" /> -
-		        <input type="text" id="phone-part2" maxlength="4" required class="form-input" /> -
-		        <input type="text" id="phone-part3" maxlength="4" required class="form-input" />
+		        <input type="text" id="phone-part1" name="phone-part1" maxlength="3" required class="form-input" > -
+		        <input type="text" id="phone-part2" name="phone-part2" maxlength="4" required class="form-input" > -
+		        <input type="text" id="phone-part3" name="phone-part3" maxlength="4" required class="form-input" >
 		    </div>
 		    <span></span>
 		</div>
@@ -55,7 +55,7 @@
         
         <div class="form-group terms-agreement">
             <label for="terms">
-                <input type="checkbox" id="terms" name="terms" required />
+                <input type="checkbox" id="terms" name="terms" required>
                 약관에 동의합니다.
             </label>
         </div>
