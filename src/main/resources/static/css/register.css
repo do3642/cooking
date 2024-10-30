@@ -8,7 +8,11 @@
 .registration-form {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     gap: 5px;
+=======
+    gap: 15px;
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
 }
 
 .form-group {
@@ -27,11 +31,14 @@
     border-color: rgb(73, 57, 113);
 }
 
+<<<<<<< HEAD
 form div span{
 	font-family: 'Pretendard-Regular';
 	font-size:0.9em;
 }
 
+=======
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
 .terms-scroll {
     max-height: 150px; /* 원하는 높이로 조정 */
     overflow-y: auto;  /* 세로 스크롤 추가 */

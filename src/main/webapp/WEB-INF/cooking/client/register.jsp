@@ -7,6 +7,7 @@
 <%@ include file="../layout/header.jsp" %>
 <section class="visual-content">
     <h2>회원가입</h2>
+<<<<<<< HEAD
     <form action="/register" method="post" class="registration-form" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="username">아이디</label>
@@ -37,6 +38,29 @@
 		    </div>
 		    <span></span>
 		</div>
+=======
+    <form action="/register" method="post" class="registration-form">
+        <div class="form-group">
+            <label for="username">아이디</label>
+            <input type="text" id="username" name="username" required class="form-input"/>
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required class="form-input"/>
+        </div>
+        <div class="form-group">
+            <label for="nickname">닉네임</label>
+            <input type="text" id="nickname" name="nickname" required class="form-input"/>
+        </div>
+        <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" required class="form-input"/>
+        </div>
+        <div class="form-group">
+            <label for="phone">핸드폰 번호</label>
+            <input type="tel" id="phone" name="phone" required class="form-input"/>
+        </div>
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
          <div class="terms-scroll">
             <div class="terms-content">
                 <p><strong>회원가입 약관</strong></p>
@@ -55,12 +79,20 @@
         
         <div class="form-group terms-agreement">
             <label for="terms">
+<<<<<<< HEAD
                 <input type="checkbox" id="terms" name="terms" required>
+=======
+                <input type="checkbox" id="terms" name="terms" required />
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
                 약관에 동의합니다.
             </label>
         </div>
 
+<<<<<<< HEAD
         <button type="submit" class="submit-button insert-btn" >회원가입</button>
+=======
+        <button type="submit" class="submit-button">회원가입</button>
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
     </form>
 
     <!-- -------------- 하단영역 -----------------> 
@@ -81,5 +113,8 @@
 </section>
 
 <script src="/js/login.js"></script>
+<<<<<<< HEAD
 <script src="/js/register.js"></script>
+=======
+>>>>>>> 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8
 <%@ include file="../layout/sideContent.jsp" %>
