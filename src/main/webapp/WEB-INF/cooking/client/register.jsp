@@ -7,27 +7,36 @@
 <%@ include file="../layout/header.jsp" %>
 <section class="visual-content">
     <h2>회원가입</h2>
-    <form action="/register" method="post" class="registration-form">
+    <form action="/register" method="post" class="registration-form" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="username">아이디</label>
             <input type="text" id="username" name="username" required class="form-input"/>
+            <span></span>
         </div>
         <div class="form-group">
             <label for="password">비밀번호</label>
             <input type="password" id="password" name="password" required class="form-input"/>
+            <span></span>
         </div>
         <div class="form-group">
             <label for="nickname">닉네임</label>
             <input type="text" id="nickname" name="nickname" required class="form-input"/>
+            <span></span>
         </div>
         <div class="form-group">
             <label for="email">이메일</label>
             <input type="email" id="email" name="email" required class="form-input"/>
+            <span></span>
         </div>
         <div class="form-group">
-            <label for="phone">핸드폰 번호</label>
-            <input type="tel" id="phone" name="phone" required class="form-input"/>
-        </div>
+		    <label for="phone">핸드폰 번호</label>
+		    <div class="phone-input">
+		        <input type="text" id="phone-part1" maxlength="3" required class="form-input" /> -
+		        <input type="text" id="phone-part2" maxlength="4" required class="form-input" /> -
+		        <input type="text" id="phone-part3" maxlength="4" required class="form-input" />
+		    </div>
+		    <span></span>
+		</div>
          <div class="terms-scroll">
             <div class="terms-content">
                 <p><strong>회원가입 약관</strong></p>
@@ -51,7 +60,7 @@
             </label>
         </div>
 
-        <button type="submit" class="submit-button">회원가입</button>
+        <button type="submit" class="submit-button insert-btn" >회원가입</button>
     </form>
 
     <!-- -------------- 하단영역 -----------------> 
@@ -72,4 +81,5 @@
 </section>
 
 <script src="/js/login.js"></script>
+<script src="/js/register.js"></script>
 <%@ include file="../layout/sideContent.jsp" %>

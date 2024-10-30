@@ -1,0 +1,92 @@
+[33mcommit 5f14a16df3ab68ac5bdddde3d61d88edbd99b2e8[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 23:14:12 2024 +0900
+
+    /auth/register ui 다만듬| 다음할일: 정규식, 시큐리티활용 회원가입, 로그인 기능 구현해야함
+
+[33mcommit 769822cbfe356e20b677e9d21391eb493ed9a350[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 22:16:11 2024 +0900
+
+    C:/Program Files/Git/auth/login ui 구현함|side-content 회원가입 ui span태그로 되어있어 a태그로 수정
+
+[33mcommit 288d27c8261f2d1db21968937f6034500b9a9734[m
+Merge: a0a3221 63a4f4e
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 00:43:18 2024 +0900
+
+    Resolve merge conflicts
+
+[33mcommit a0a3221104ee3a7115c0cb5122ea1c7e848c8c74[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 00:37:41 2024 +0900
+
+    기존 html 폴더에서 git안하고 spring폴더에서 git해봄
+
+[33mcommit d307bf75849a9dcdcf80c2a024fefd034ab1f89b[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 00:30:17 2024 +0900
+
+    html -> jsp 변경완료| 좌(header),우(sideContent) include file로 변경 | index,login jsp Controller 생성 | 로그인 페이지 이동시 header nav 클래스제거기능추가 | 다음할일: 시큐리티 적용
+
+[33mcommit 63a4f4e5e76529a8c26bde75f480937d49690562[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 29 00:24:44 2024 +0900
+
+    프로젝트 설명 README.md
+    
+    프로젝트 역할, 주요 기능, 사용 라이브러리 등 소개
+
+[33mcommit ebbf90596c908e6b60ea6724833396cba2da0b7b[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Mon Oct 28 00:36:36 2024 +0900
+
+    side-content 로그인,프리미엄가게 css완료, 임시 스크롤스크립트적용 다음할일: 링크되는 페이지들 구축,script 및 jsp로 바꿀준비
+
+[33mcommit b80bb961c56f204534a4acd99991c82b134947d4[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Thu Oct 24 23:52:33 2024 +0900
+
+    search 아이콘제거 버튼으로변경,인기레시피,이달의맛집 인터페이스 구축,검색버튼,상세보기,h태그들 hover효과 추가,나눔고딕 import | 다음할일: side-content 인터페이스 , 하트아이콘 밑 숫자 스크립트 효과,링크들 연결
+
+[33mcommit a263133f3c669563777514e918cd8bcef44e8d8b[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Wed Oct 23 23:49:44 2024 +0900
+
+    인기레시피 부분 img대신 i태그로 아이콘추가, 배치조정,색상추가 다음할일: search크기,아이콘변경,하트아이콘색상,상세보기
+
+[33mcommit f57afe540a9851715ebbb3025f8fcd92ab349a66[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Wed Oct 23 21:46:58 2024 +0900
+
+    visual hover효과,글씨크기,위치조정,h2 hover효과 글씨키움
+
+[33mcommit 357f9f6f0c54d0d6fdb537a9312c64012d6e7fef[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Tue Oct 22 23:37:13 2024 +0900
+
+    visual 컨텐츠 media 적용해보다 다 제거/ 디자인 다 잡고 하는게 나을듯 / visual 카테고리표기  before로 배경생성,그라데이션배경추가, 제목글자수 제한,grid 조정 다음할일: h3위치 조정, figcaption 글자 크기 조정
+
+[33mcommit 6353d38584fadeab08a6b42b9b6e3f0571b01f99[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Mon Oct 21 23:46:10 2024 +0900
+
+    body배경 수정, 제일 바깥 큰 박스 3개 grid로 변경, 메인컨텐츠 grid 중 마감 다음 할일: 메인비주얼박스 border-radius, figure 이미지 안 글씨들 포지션위치 조절, hover효과
+
+[33mcommit b635cbee334d8ac6f3e4d34039fc0147b397b560[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Mon Oct 21 22:59:33 2024 +0900
+
+    네비 html b태그 추가, css 수정, 폰트 common.css에 연결, 검색바 input태그 추가, sumit버튼은 background-image 쓸건데 이미지 icon  찾아야함
+
+[33mcommit 0bd7c79c78fcb685704a21cbecafb0560bb310f4[m
+Author: yc <do36421@naver.com>
+Date:   Mon Oct 21 09:31:23 2024 +0900
+
+    html,css 기본 세팅 완료
+
+[33mcommit 55f52e18fd3c6ced3cb4ed8c058f3ceb31110c95[m
+Author: do3642 <61033883+do3642@users.noreply.github.com>
+Date:   Sun Oct 20 22:12:49 2024 +0900
+
+    recipe프로젝트 기반 ui,ux업그레이드 프로젝트/ 코드가독성과 디자인개편으로 새로 시작, html,css,js 구성후 jsp로 작업예정/ 현재진행사항:메인컨텐츠-게시판리스트 배치 잡는중

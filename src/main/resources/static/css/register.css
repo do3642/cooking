@@ -8,7 +8,7 @@
 .registration-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 .form-group {
@@ -25,6 +25,10 @@
 
 .form-input:focus {
     border-color: rgb(73, 57, 113);
+}
+
+form div span{
+	font-family: 'Pretendard-Regular';
 }
 
 .terms-scroll {
