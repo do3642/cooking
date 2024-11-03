@@ -36,6 +36,15 @@ dependencies {
 	implementation group: 'javax.servlet', name: 'jstl'
 	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
 	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+implementation group: 'org.springframework.security', name: 'spring-security-taglibs'
+
+
+	
 }
 
 tasks.named('test') {
