@@ -18,9 +18,14 @@
    							 <!-- 로그인 상태에서만 표시할 내용 -->
    							 <div class="welcome-message">${user.username}회원님, 반갑습니다!</div>
 					      		 <div class="button-group">
-						            <a href="/auth/logout" class="btn">로그아웃</a>
+						            <a href="/auth/logout" class="btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">로그아웃</a>
 						            <a href="/auth/userinfo" class="btn">내 정보 관리</a>
 						            <a href="/auth/myposts" class="btn">내 게시물 관리</a>
+						            
+						            <!-- post요청을 위한 폼태그 -->
+						            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;">
+    								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
 						        </div>
 						</c:if>	
                     </article>
