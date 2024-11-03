@@ -16,7 +16,7 @@
 
 - **MySQL 데이터베이스**:
   - 데이터베이스 이름: `cooking`
-  - 사용자 이름: `root`
+  - 관리자 이름: `root`
   - 비밀번호: `1234`
   
   초기 데이터베이스 생성하지 않을 시 application.properties와 정보가 맞지않아 서버가 실행되지 않습니다.
@@ -28,6 +28,9 @@
   - **Spring Boot**: 프로젝트의 핵심으로, 손쉬운 설정과 빠른 개발을 지원합니다.
   - **Spring Data JPA**: 데이터베이스와의 상호작용을 쉽게 관리할 수 있는 기능을 제공합니다.
   - **Spring Web**: RESTful API 및 웹 애플리케이션을 구축하기 위한 모듈입니다.
+  - **Spring Boot Starter Security**: 웹 애플리케이션의 인증과 권한 관리를 위한 기본적인 보안 설정을 제공합니다.
+  - **Spring Boot Starter Test**: 단위 테스트와 통합 테스트를 위한 필수 라이브러리를 포함하여 테스트 기능을 제공합니다.
+  - **spring security taglibs**: JSP에서 Spring Security 관련 기능을 편리하게 사용하기 위한 태그 라이브러리입니다.
 
 - **라이브러리**:
   - **Lombok**: 코드의 반복을 줄여주는 애노테이션 기반의 라이브러리입니다.
