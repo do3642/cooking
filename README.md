@@ -31,6 +31,8 @@
   - **Spring Boot Starter Security**: 웹 애플리케이션의 인증과 권한 관리를 위한 기본적인 보안 설정을 제공합니다.
   - **Spring Boot Starter Test**: 단위 테스트와 통합 테스트를 위한 필수 라이브러리를 포함하여 테스트 기능을 제공합니다.
   - **spring security taglibs**: JSP에서 Spring Security 관련 기능을 편리하게 사용하기 위한 태그 라이브러리입니다.
+  - **Spring Boot Starter Validation**: JSP에서 유효성 검사를 간편하게 수행할 수 있도록 도와줍니다.
+  - **ModelMapper**: 객체 간의 변환을 쉽게 할 수 있도록 돕는 라이브러리입니다. 버전: `3.1.1`
 
 - **라이브러리**:
   - **Lombok**: 코드의 반복을 줄여주는 애노테이션 기반의 라이브러리입니다.

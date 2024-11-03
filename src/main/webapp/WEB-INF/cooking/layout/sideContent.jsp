@@ -17,16 +17,32 @@
                        <c:if test="${user != null }">
    							 <!-- 로그인 상태에서만 표시할 내용 -->
    							 <div class="welcome-message">${user.username}회원님, 반갑습니다!</div>
-					      		 <div class="button-group">
-						            <a href="/auth/logout" class="btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">로그아웃</a>
-						            <a href="/auth/userinfo" class="btn">내 정보 관리</a>
-						            <a href="/auth/myposts" class="btn">내 게시물 관리</a>
-						            
-						            <!-- post요청을 위한 폼태그 -->
-						            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;">
-    								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-</form>
-						        </div>
+   							 <div class="user-grade">
+						        <c:choose>
+						            <c:when test="${user.postCount > 30}">
+						                <div>당신의 등급은: 골드</div>
+						            </c:when>
+						            <c:when test="${user.postCount > 20}">
+						                <div>당신의 등급은: 실버</div>
+						            </c:when>
+						            <c:when test="${user.postCount > 10}">
+						                <div>당신의 등급은: 브론즈</div>
+						            </c:when>
+						            <c:otherwise>
+						                <div>당신의 등급은: 일반 사용자</div>
+						            </c:otherwise>
+						        </c:choose>
+						    </div>
+				      		 <div class="button-group">
+					            <a href="/auth/logout" class="btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">로그아웃</a>
+					            <a href="/auth/userinfo" class="btn">내 정보 관리</a>
+					            <a href="/auth/myposts" class="btn">내 게시물 관리</a>
+					            
+					            <!-- post요청을 위한 폼태그 -->
+					            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;">
+   									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								</form>
+					        </div>
 						</c:if>	
                     </article>
 
