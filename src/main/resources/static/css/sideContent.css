@@ -58,6 +58,51 @@
     color: #333;
 }
 
+/* 로그인 후 css */
+
+/* 로그인 관련 */
+.side-content .account {
+    padding: 20px; 
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.side-content .account .welcome-message {
+   font-size: 12px;
+    margin-bottom: 20px;
+    color: rgb(73, 57, 113); 
+    font-family: 'GmarketSansMedium'; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.side-content .account .button-group {
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column; 
+    gap: 10px;
+}
+
+.side-content .account .btn {
+    padding: 10px 15px; 
+    background-color: #4a90e2;
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px; 
+    transition: background-color 0.3s;
+}
+
+.side-content .account .btn:hover {
+    background-color: #357ab7;
+}
+
+
+
+
+/*----------------------- */
 
 /* 프리미엄 가게 */
 

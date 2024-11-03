@@ -4,14 +4,25 @@
             <section class="side-content">
                 <div class="side-content-box">
                     <article class="account">
-                        <a href="/auth/login">로그인</a>
-                        <a href="#"><img src="/img/kakao_login_medium_narrow.png" alt="카카오 로그인"></a>
-                        <a href="#"><img src="/img/btn_google_signin_dark_normal_web.png" alt="구글 로그인"></a>
-                        <p>
-                            <a href="/auth/register">회원가입 |</a>
-                            <a href="#">아이디 찾기 |</a>
-                            <a href="#">비밀번호 찾기</a>
-                        </p>
+                    	<c:if test="${user == null }">
+	                        <a href="/auth/login">로그인</a>
+	                        <a href="#"><img src="/img/kakao_login_medium_narrow.png" alt="카카오 로그인"></a>
+	                        <a href="#"><img src="/img/btn_google_signin_dark_normal_web.png" alt="구글 로그인"></a>
+	                        <p>
+	                            <a href="/auth/register">회원가입 |</a>
+	                            <a href="#">아이디 찾기 |</a>
+	                            <a href="#">비밀번호 찾기</a>
+	                        </p>
+                       </c:if>
+                       <c:if test="${user != null }">
+   							 <!-- 로그인 상태에서만 표시할 내용 -->
+   							 <div class="welcome-message">${user.username}회원님, 반갑습니다!</div>
+					      		 <div class="button-group">
+						            <a href="/auth/logout" class="btn">로그아웃</a>
+						            <a href="/auth/userinfo" class="btn">내 정보 관리</a>
+						            <a href="/auth/myposts" class="btn">내 게시물 관리</a>
+						        </div>
+						</c:if>	
                     </article>
 
                     <article class="premium-store">
