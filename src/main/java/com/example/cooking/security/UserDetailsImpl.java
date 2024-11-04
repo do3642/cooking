@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class UserDetailsImpl implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;
-	private Client user;
+	private Client client;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -26,7 +26,7 @@ public class UserDetailsImpl implements UserDetails{
 		Collection<GrantedAuthority> roleList = new ArrayList<>();
 		
 		roleList.add(()->{
-			return "ROLE_" + user.getRole();
+			return "ROLE_" + client.getRole();
 		});
 		
 		return null;
@@ -36,15 +36,25 @@ public class UserDetailsImpl implements UserDetails{
 	public String getPassword() {
 
 		
-		return "{noop}" + user.getPassword();
+		return  client.getPassword();
 		// "{noop}" = 암호화하지 않겠다 
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return user.getUsername();
+		return client.getUsername();
 	}
+	
+	 private int postCount; // 예시 필드 추가
+	    
+	    public int getPostCount() {
+	        return postCount;
+	    }
+
+	    public void setPostCount(int postCount) {
+	        this.postCount = postCount;
+	    }
 
 	//만료된 계정인지 리턴시켜주는 메서드(만료안됨 : true)
 	@Override

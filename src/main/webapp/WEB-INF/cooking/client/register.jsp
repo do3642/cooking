@@ -31,9 +31,9 @@
 	    <div class="form-group">
 	        <label for="phone-part1">핸드폰 번호</label>
 	        <div class="phone-input">
-	            <input type="text" id="phone-part1" name="phone-part1" maxlength="3" required class="form-input"> -
-	            <input type="text" id="phone-part2" name="phone-part2" maxlength="4" required class="form-input"> -
-	            <input type="text" id="phone-part3" name="phone-part3" maxlength="4" required class="form-input">
+	            <input type="text" id="phone-part1" name="phonePart1" maxlength="3" required class="form-input"> -
+	            <input type="text" id="phone-part2" name="phonePart2" maxlength="4" required class="form-input"> -
+	            <input type="text" id="phone-part3" name="phonePart3" maxlength="4" required class="form-input">
 	        </div>
 	        <span></span>
 	    </div>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.cooking.domain.Client;
 import com.example.cooking.dto.ResponseDTO;
@@ -45,8 +46,7 @@ public class ClientController {
 	
 //  회원가입 요청
 	@PostMapping("/register")
-	@ResponseBody
-	public ResponseDTO<?> insertUser(@Valid @RequestBody UserDTO userDTO, BindingResult bindingResult ){
+	public String register(@Valid UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes){
 		
 		Client client = modelMapper.map(userDTO, Client.class);
 // 아이디 중복 검사
@@ -54,18 +54,22 @@ public class ClientController {
 		
 		if (bindingResult.hasErrors()) {
 		    // 에러 메시지 반환
-		    return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), "입력 값이 유효하지 않습니다.");
+			return "redirect:/register?error";
 		}
-		if(findUser.getUsername() == null) {
 		
+		if(findUser.getUsername() == null) {
+			 // 핸드폰 번호 통합
+	        String fullPhoneNumber = userDTO.getPhonePart1() + "-" + userDTO.getPhonePart2() + "-" + userDTO.getPhonePart3();
+	        client.setTel(fullPhoneNumber); // 통합된 핸드폰 번호 설정
 		// 클라이언트에게 전달받은 user정보를 서비스로 넘겨줌
 		userService.register(client);
 		
-		// 정상적으로 끝나면 클라이언트한테 회원가입 완료했다고 응답
-		return new ResponseDTO<>(HttpStatus.OK.value(), client.getUsername()+"님 회원 가입 성공");
+		   redirectAttributes.addFlashAttribute("message", client.getUsername() + "님 회원 가입 성공");
+	        return "redirect:/auth/login"; // 성공 후 로그인 페이지로 리다이렉트
 		// OK에서 끝나면 OK를 넣어주고 .value 해야 해당 열거코드를 넣어줌
 		}else {
-			return new ResponseDTO<>(HttpStatus.BAD_REQUEST.value(), client.getUsername()+ "는 중복된 아이디입니다.");
+			redirectAttributes.addFlashAttribute("error", client.getUsername() + "는 중복된 아이디입니다.");
+	        return "redirect:/register"; // 중복 시 다시 회원가입 페이지로 리다이렉트
 		}
 	}
 	

@@ -19,8 +19,9 @@ public class SecurityConfig {
                 .antMatchers("/").permitAll() // 공개 URL
                 .anyRequest().permitAll() // 기본적으로 모든 요청 허용, 컨트롤러에서 @PreAuthorize("isAuthenticated()")로 특정맵핑 만 막을예정
             .and()
+            .csrf().disable()
                 .formLogin()
-                    .loginPage("/auth/login") 
+                    .loginPage("/login") 
                     .permitAll()
             .and()
                 .logout()
