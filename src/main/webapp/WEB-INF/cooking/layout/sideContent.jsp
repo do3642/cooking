@@ -16,20 +16,20 @@
                        </c:if>
                        <c:if test="${user != null }">
    							 <!-- 로그인 상태에서만 표시할 내용 -->
-   							 <div class="welcome-message">${user.username}회원님, 반갑습니다!</div>
+   							 <div class="welcome-message">${user.client.nickname}회원님, 반갑습니다!</div>
    							 <div class="user-grade">
 						        <c:choose>
 						            <c:when test="${user.postCount > 30}">
-						                <div>당신의 등급은: 골드</div>
+						                <div>회원등급 : 골드</div>
 						            </c:when>
 						            <c:when test="${user.postCount > 20}">
-						                <div>당신의 등급은: 실버</div>
+						                <div>회원등급 : 실버</div>
 						            </c:when>
 						            <c:when test="${user.postCount > 10}">
-						                <div>당신의 등급은: 브론즈</div>
+						                <div>회원등급 : 브론즈</div>
 						            </c:when>
 						            <c:otherwise>
-						                <div>당신의 등급은: 일반 사용자</div>
+						                <div>회원등급 : 일반사용자</div>
 						            </c:otherwise>
 						        </c:choose>
 						    </div>
@@ -46,7 +46,7 @@
 						</c:if>	
                     </article>
 
-                    <article class="premium-store">
+                    <article class="premium-store <c:if test="${user != null }">logged-in</c:if>">
                         <h5>프리미엄 가게</h5>
                         <div class="premium-list">
                             <div class="card">

@@ -29,7 +29,7 @@ public class UserDetailsImpl implements UserDetails{
 			return "ROLE_" + client.getRole();
 		});
 		
-		return null;
+		return roleList;
 	}
 
 	@Override
@@ -46,15 +46,9 @@ public class UserDetailsImpl implements UserDetails{
 		return client.getUsername();
 	}
 	
-	 private int postCount; // 예시 필드 추가
-	    
-	    public int getPostCount() {
-	        return postCount;
-	    }
-
-	    public void setPostCount(int postCount) {
-	        this.postCount = postCount;
-	    }
+	public int getPostCount() {
+	    return client.getPostCount(); // Client에서 직접 가져오는 방식
+	}
 
 	//만료된 계정인지 리턴시켜주는 메서드(만료안됨 : true)
 	@Override

@@ -101,20 +101,24 @@
 /* 등급표시 css*/
 
 .user-grade {
-    margin-top: 10px; /* 위쪽 여백 */
-    padding: 10px; /* 내부 여백 */
+    margin-top: 2px; /* 위쪽 여백 */
+    padding: 5px; /* 내부 여백 */
     border-radius: 5px; /* 모서리 둥글게 */
     background-color: rgba(73, 57, 113, 0.1); /* 부드러운 배경색 */
     color: rgb(73, 57, 113); /* 텍스트 색상 */
     font-weight: bold; /* 텍스트 두께 */
-    font-size: 16px; /* 텍스트 크기 */
+    font-size: 12px; /* 텍스트 크기 */
     text-align: center; /* 중앙 정렬 */
+    
 }
 
 .button-group {
-    margin-top: 15px; /* 버튼 그룹 위쪽 여백 */
+    margin-top: 10px; /* 버튼 그룹 위쪽 여백 */
     display: flex; /* 플렉스 박스 레이아웃 */
     justify-content: center; /* 중앙 정렬 */
+}
+.user-grade > div{
+	font-size:inherit;
 }
 
 
@@ -125,6 +129,10 @@
 .side-content .premium-store{
     height: 609px;
     overflow: hidden; 
+}
+ /* 로그인 시 높이조절 */
+.side-content .premium-store.logged-in {
+    height: 550px;
 }
 .side-content .premium-store h5{
     font-size: 1em;
