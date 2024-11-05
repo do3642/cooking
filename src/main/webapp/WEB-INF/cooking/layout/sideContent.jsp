@@ -37,7 +37,7 @@
 					            <a href="/auth/logout" class="btn" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">로그아웃</a>
 					            <a href="/auth/userinfo" class="btn">내 정보 관리</a>
 					            <a href="/auth/myposts" class="btn">내 게시물 관리</a>
-					            
+					            <a href="/posts/create" class="btn">게시물 작성</a>
 					            <!-- post요청을 위한 폼태그 -->
 					            <form id="logout-form" action="/auth/logout" method="POST" style="display: none;">
    									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

@@ -14,7 +14,8 @@ public class SecurityConfig {
 
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        http //csrf()
+		//.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
             .authorizeRequests()
                 .antMatchers("/").permitAll() // 공개 URL
                 .anyRequest().permitAll() // 기본적으로 모든 요청 허용, 컨트롤러에서 @PreAuthorize("isAuthenticated()")로 특정맵핑 만 막을예정

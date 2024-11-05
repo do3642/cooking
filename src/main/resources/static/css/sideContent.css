@@ -86,12 +86,13 @@
 }
 
 .side-content .account .btn {
-    padding: 10px 15px; 
+    padding: 7px 15px; 
     background-color: #4a90e2;
     color: #fff; 
     text-decoration: none;
     border-radius: 5px; 
     transition: background-color 0.3s;
+    font-size:14px;
 }
 
 .side-content .account .btn:hover {
@@ -127,12 +128,12 @@
 /* 프리미엄 가게 */
 
 .side-content .premium-store{
-    height: 609px;
+    height: 590px;
     overflow: hidden; 
 }
  /* 로그인 시 높이조절 */
 .side-content .premium-store.logged-in {
-    height: 550px;
+    height: 532px;
 }
 .side-content .premium-store h5{
     font-size: 1em;

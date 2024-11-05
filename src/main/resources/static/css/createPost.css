@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.visual-content {
+    padding: 20px;
+    width: 100%;
+    margin: auto;
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* 배경색 */
+}
+
+.post-category {
+    margin-bottom: 20px; /* 카테고리 간 간격 */
+}
+
+.post-category input,
+.post-category select,
+.post-category textarea {
+    width: 100%; /* 입력 필드 전체 너비 */
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.post-category input[type="file"] {
+    border: none; /* 파일 입력 필드는 기본 스타일 제거 */
+}
+
+.post-category button {
+    background-color: #4a90e2; /* 버튼 배경색 */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-category button:hover {
+    background-color: #357ab7; /* 버튼 호버 색상 */
+}
+
+h1 {
+    text-align: center;
+    color: rgb(73, 57, 113); /* 제목 색상 */
+    font-family: 'GmarketSansMedium'; /* 제목 폰트 */
+}
