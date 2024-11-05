@@ -35,6 +35,10 @@ public class ClientController {
 		return "client/login";
 	}
 	
+
+	
+	
+	
 	
 	
 //	회원가입 이동

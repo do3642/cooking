@@ -11,6 +11,7 @@
   <div class="login-container">
         <h2>로그인</h2>
         <form action="/login" method="post">
+         <input type="hidden" name="_csrf" th:value="${_csrf.token}">
             <div class="form-group">
                 <label for="username">아이디</label>
                 <input type="text" id="username" name="username" required>
