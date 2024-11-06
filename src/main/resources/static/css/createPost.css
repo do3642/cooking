@@ -1,52 +1,124 @@
 @charset "UTF-8";
 
 .visual-content {
-    padding: 20px;
     width: 100%;
-    margin: auto;
     overflow-y: auto; /* 세로 스크롤 활성화 */
     height: 100%;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     background-color: #f9f9f9; /* 배경색 */
 }
 
+/* 공통 폼 요소 스타일 */
 .post-category {
-    margin-bottom: 20px; /* 카테고리 간 간격 */
+    margin-bottom: 20px;
 }
 
 .post-category input,
 .post-category select,
 .post-category textarea {
-    width: 100%; /* 입력 필드 전체 너비 */
+    width: 100%;
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.post-category input[type="file"] {
-    border: none; /* 파일 입력 필드는 기본 스타일 제거 */
+/* Focus 상태 디자인 */
+.post-category input:focus,
+.post-category select:focus,
+.post-category textarea:focus {
+    border: 2px solid #8a6fb5; /* 덜 튀는 보라색 테두리 */
+    background-color: rgba(138, 111, 181, 0.1); /* 연한 보라색 배경 */
+    outline: none; /* 기본 아웃라인 제거 */
+    box-shadow: 0 0 8px rgba(138, 111, 181, 0.2); /* 부드러운 그림자 */
 }
 
+/* 버튼 스타일 */
 .post-category button {
-    background-color: #4a90e2; /* 버튼 배경색 */
+	width:auto;
+    background-color: #4a90e2;
     color: white;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
 }
 
 .post-category button:hover {
-    background-color: #357ab7; /* 버튼 호버 색상 */
+    background-color: #357ab7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 */
 }
 
-h1 {
-    text-align: center;
-    color: rgb(73, 57, 113); /* 제목 색상 */
-    font-family: 'GmarketSansMedium'; /* 제목 폰트 */
+
+
+/* 조리 순서 레이블 */
+
+#ingredients >div >input{
+	width:auto;
 }
+
+
+.step-label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: rgb(73, 57, 113);
+    font-size: 14px;
+}
+
+/* Select 박스 스타일 */
+select {
+    width: 100%;
+    padding: 10px 30px 10px 10px; /* 우측 여백을 넉넉히 줘야 아이콘이 겹치지 않음 */
+    margin: 10px 0;
+    border: 2px solid #c8a2d8; /* 라일락 색 테두리 */
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Pretendard-Regular'; /* 본문 폰트 */
+    background-color: #f3f4f6; /* 연한 회색 배경 */
+    color: #5f4b8b; /* 어두운 보라색 텍스트 */
+    transition: border-color 0.3s;
+    position: relative; /* 아이콘 위치 설정 */
+}
+
+
+
+select:focus {
+    border: 2px solid #8a6fb5; /* 덜 튀는 보라색 테두리 */
+    background-color: rgba(138, 111, 181, 0.1); /* 연한 보라색 배경 */
+    outline: none;
+    box-shadow: 0 0 8px rgba(138, 111, 181, 0.2); /* 부드러운 그림자 */
+}
+
+/* 게시물 등록 버튼 스타일 */
+button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button[type="button"]:hover {
+    background-color: #357ab7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 호버 시 입체감 추가 */
+}
+
+button[type="button"]:active {
+    background-color: #2a6491;
+}
+
+
+
+
