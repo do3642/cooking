@@ -24,8 +24,10 @@
 
         <!-- 레시피 폼 -->
         <div id="recipe-form" class="post-category" style="display:none;">
-            <input type="file" name="thumbnail" />
+        	<label for="recipeThumbnail">썸네일</label>
+            <input type="file" id="recipeThumbnail" name="thumbnail" />
             <input type="text" name="title" placeholder="제목" required />
+              <textarea name="content" placeholder="내용" required></textarea>
             <select name="servings">
                 <option>1인분</option>
                 <option>2인분</option>
@@ -63,7 +65,8 @@
 
         <!-- 맛집추천 폼 -->
         <div id="restaurant-form" class="post-category" style="display:none;">
-            <input type="file" name="thumbnail" />
+        	<label for="recipeThumbnail">썸네일</label>
+            <input type="file" id="restaurantThumbnail" name="thumbnail" />
             <input type="text" name="storeName" placeholder="상호명" required />
             <input type="text" name="region" placeholder="지역명" required />
             <input type="text" name="title" placeholder="제목" required />

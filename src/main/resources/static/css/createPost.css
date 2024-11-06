@@ -57,6 +57,7 @@
 
 
 
+
 /* 조리 순서 레이블 */
 
 #ingredients >div >input{
@@ -64,7 +65,7 @@
 }
 
 
-.step-label {
+label {
     font-weight: bold;
     margin-top: 10px;
     display: block;
