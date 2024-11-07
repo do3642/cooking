@@ -57,4 +57,7 @@ public class RestaurantPost {
 
     @OneToMany(mappedBy = "restaurantPost")
     private List<Comment> comments; // 해당 게시글에 달린 댓글들
+    
+    @Column(nullable = false)
+    private int recommendationCount = 0; // 추천 수
 }

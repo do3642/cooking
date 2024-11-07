@@ -19,40 +19,40 @@
                 
                 <nav>
                     <ul>
-                        <li class="active">
+                        <li class="">
                             <b></b>
                             <b></b>
-                            <a href="/">홈</a>
+                            <a href="/" data-page="home">홈</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/Freebulletinboard">자유 게시판</a>
+                            <a href="/board/freeBoard" data-page="freeBoard">자유 게시판</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/Koreanfood">한식</a>
+                            <a href="/board/koreanBoard" data-page="koreanBoard">한식</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/Chinesefood">중식</a>
+                            <a href="/board/chineseBoard" data-page="chineseBoard">중식</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/Japanese food">일식</a>
+                            <a href="/board/japaneseBoard" data-page="japaneseBoard">일식</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/westernfood">양식</a>
+                            <a href="/board/westernBoard" data-page="westernBoard">양식</a>
                         </li>
                         <li>
                             <b></b>
                             <b></b>
-                            <a href="/board/restaurant">맛집추천</a>
+                            <a href="/board/restaurantBoard" data-page="restaurantBoard">맛집추천</a>
                         </li>
                     </ul>
                     <div class="search-box">

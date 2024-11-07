@@ -159,6 +159,7 @@
     </div>
 
       <script src="/js/script.js"></script>
+      <script src="/js/navigation.js"></script>
       <script src="https://kit.fontawesome.com/c0680c70ea.js" crossorigin="anonymous"></script>
 </body>
 </html>
