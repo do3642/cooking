@@ -34,6 +34,63 @@ function addStep() {
     stepsDiv.insertBefore(newStep, addButton); // 버튼 위에 새로운 조리 순서 필드 추가
 }
 
+
+/*----------------------------------*/
+
+
 function submitForm() {
-    // Form submission logic goes here
+    const category = document.getElementById("category").value;
+    const data = new FormData();
+
+    if (category === "free") {
+        // 자유게시판 데이터
+        data.append("title", document.querySelector("#free-form input[name='title']").value);
+        data.append("content", document.querySelector("#free-form textarea[name='content']").value);
+    } else if (category === "recipe") {
+        // 레시피 데이터
+        data.append("thumbnail", document.querySelector("#recipe-form input[name='thumbnail']").files[0]);
+        data.append("title", document.querySelector("#recipe-form input[name='title']").value);
+        data.append("content", document.querySelector("#recipe-form textarea[name='content']").value);
+        data.append("servings", document.querySelector("#recipe-form select[name='servings']").value);
+        data.append("cookTime", document.querySelector("#recipe-form input[name='cookTime']").value);
+        data.append("cuisine", document.querySelector("#recipe-form select[name='cuisine']").value);
+
+        // 재료 데이터 추가
+        const ingredientNames = document.querySelectorAll("#recipe-form input[name='ingredientName[]']");
+        const ingredientAmounts = document.querySelectorAll("#recipe-form input[name='ingredientAmount[]']");
+        ingredientNames.forEach((nameInput, index) => {
+            data.append(`ingredients[${index}][name]`, nameInput.value);
+            data.append(`ingredients[${index}][amount]`, ingredientAmounts[index].value);
+        });
+
+        // 조리 순서 데이터 추가
+        const steps = document.querySelectorAll("#recipe-form input[name='steps[]']");
+        steps.forEach((stepInput, index) => {
+            data.append(`steps[${index}]`, stepInput.value);
+        });
+    } else if (category === "restaurant") {
+        // 맛집 추천 데이터
+        data.append("thumbnail", document.querySelector("#restaurant-form input[name='thumbnail']").files[0]);
+        data.append("storeName", document.querySelector("#restaurant-form input[name='storeName']").value);
+        data.append("region", document.querySelector("#restaurant-form input[name='region']").value);
+        data.append("title", document.querySelector("#restaurant-form input[name='title']").value);
+        data.append("content", document.querySelector("#restaurant-form textarea[name='content']").value);
+    }
+
+    // fetch 요청
+    fetch(`/post/${category}`, {
+        method: "POST",
+        body: data,
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("성공:", data);
+		console.log("보낸 데이터:", data.data);
+    })
+    .catch(error => {
+        console.error("오류:", error);
+    });
 }
+
+
+

@@ -75,9 +75,9 @@
     </div>
 
     <!-- 제출 버튼 -->
-    <button type="button" onclick="submitForm()">게시물 등록</button>
+    <button id="submit-btn"type="button" onclick="submitForm()">게시물 등록</button>
 </section>
 
-<script src="/js/login.js"></script>
+
 <script src="/js/createPost.js"></script>
 <%@ include file="../layout/sideContent.jsp" %>
