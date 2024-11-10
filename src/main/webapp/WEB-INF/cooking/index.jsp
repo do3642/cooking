@@ -14,54 +14,20 @@
                 <article class="new-recipe">
                     <h2>신규 레시피</h2>
                     <div class="visual">
-                        <figure>
-                            <a href="#"><img src="./img/1.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목테스트제목테스트제목테스트</span>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href="#"><img src="./img/2.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목</span>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href="#"><img src="./img/3.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목테스트제목테스트제목테스트제목테스트제목테스트제목테스트</span>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href="#"><img src="./img/4.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목</span>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href="#"><img src="./img/5.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목</span>
-                            </figcaption>
-                        </figure>
-                        <figure>
-                            <a href="#"><img src="./img/6.jpg" alt="해당하는 게시물 썸네일"></a>
-                            <span>카테고리</span>
-                            <figcaption>
-                                <p>작성자</p>
-                                <span>제목</span>
-                            </figcaption>
-                        </figure>
+                     <c:forEach var="recipe" items="${latestRecipePosts}">
+	                      <figure>
+	                            <a href="/board/koreanBoard/${recipe.id}">
+	                            	<img src="./img/${recipe.thumbnailFilename}" alt="최신등록 레시피">
+	                            </a>
+	                            <span>${recipe.cuisineType}</span>
+	                            <figcaption>
+	                                <p>${recipe.client.nickname}</p>
+	                                <span>${recipe.title}</span>
+	                            </figcaption>
+	                        </figure>
+                      </c:forEach>
+                       
+
                     </div>
                 </article>
 
@@ -107,7 +73,7 @@
                     <!-- 이달의 맛집 -->
                     <div class="store">
                         <div class="store-title">
-                            <h4>이달의 맛집1</h4>
+                            <h4>이달의 맛집</h4>
                             <a href="#">+더보기</a>
                         </div>
                         <div class="store-list">

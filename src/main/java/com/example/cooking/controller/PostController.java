@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.cooking.domain.Client;
 import com.example.cooking.dto.PageDTO;
+import com.example.cooking.dto.RecipePageDTO;
 import com.example.cooking.dto.ResponseDTO;
 import com.example.cooking.posts.FreeBoardPost;
 import com.example.cooking.posts.RecipePost;
@@ -92,14 +93,16 @@ public class PostController {
 		}
 		
 		
-		
-		
-		
-		
-		
 		// 한식 게시판
 		@GetMapping("/board/koreanBoard")
-		public String koreanBoard() {
+		public String getRecipePostList(Model model, @PageableDefault(size=8,sort="id",direction = Direction.DESC) Pageable pageable) {
+			
+			Page<RecipePost> postList = postService.getRecipePostList(pageable);
+			
+			// html로 데이터를 보내기 위한 모델객체
+			model.addAttribute("postList", postList);
+			model.addAttribute("pageDTO", new RecipePageDTO(postList));
+			
 			return "/post/koreanBoard";
 		}
 		
