@@ -39,12 +39,12 @@
             <input type="text" name="cookTime" placeholder="조리 시간" required />
 
             <label for="cuisine">한식, 중식, 일식, 양식, 기타:</label>
-            <select id="cuisine" name="cuisine">
-                <option value="korean">한식</option>
-                <option value="chinese">중식</option>
-                <option value="japanese">일식</option>
-                <option value="western">양식</option>
-                <option value="other">기타</option>
+            <select id="cuisine" name="cuisineType">
+                <option value="KOREAN">한식</option>
+                <option value="CHINESE">중식</option>
+                <option value="JAPANESE">일식</option>
+                <option value="WESTERN">양식</option>
+                <option value="OTHER">기타</option>
             </select>
 
             <div id="ingredients">

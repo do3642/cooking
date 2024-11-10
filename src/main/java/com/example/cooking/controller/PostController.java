@@ -22,6 +22,7 @@ import com.example.cooking.domain.Client;
 import com.example.cooking.dto.ResponseDTO;
 import com.example.cooking.posts.FreeBoardPost;
 import com.example.cooking.posts.RecipePost;
+import com.example.cooking.posts.RestaurantPost;
 import com.example.cooking.repository.UserRepository;
 import com.example.cooking.security.UserDetailsImpl;
 import com.example.cooking.service.FileStorageService;
@@ -130,6 +131,37 @@ public class PostController {
 			        postService.createRecipePost(recipe, client);
 			        
 			        return new ResponseDTO<>(HttpStatus.OK.value(), "게시물 등록 완료");
-
 				}
+				
+				
+			    // 레스토랑 게시물 등록 처리
+			    @PostMapping("/post/restaurant")
+			    @ResponseBody
+			    public ResponseDTO<?> createRestaurantPost(
+			            @ModelAttribute RestaurantPost restaurantPost, 
+			            @RequestParam("thumbnail") MultipartFile thumbnail,
+			            @AuthenticationPrincipal UserDetailsImpl principal) {
+			        
+			        // 썸네일 파일 처리 (파일 저장)
+			        if (thumbnail != null && !thumbnail.isEmpty()) {
+			            try {
+			                String thumbnailFilename = fileStorageService.storeFile(thumbnail);
+			                restaurantPost.setThumbnailFilename(thumbnailFilename); // 저장된 파일명 설정
+			            } catch (Exception e) {
+			                e.printStackTrace(); // 파일 저장 중 오류 발생 시 로그 출력
+			                return new ResponseDTO<>(HttpStatus.INTERNAL_SERVER_ERROR.value(), "파일 저장 중 오류 발생");
+			            }
+			        } else {
+			            restaurantPost.setThumbnailFilename("default_thumbnail.jpg"); // 기본 썸네일 이미지 설정
+			        }
+
+			        // 로그인된 사용자 정보 (UserDetailsImpl에서 Client 객체 가져오기)
+			        Client client = principal.getClient();
+			        
+			        // 레스토랑 게시물 저장
+			        postService.createRestaurantPost(restaurantPost, client);
+			        
+			        // 성공 응답 반환
+			        return new ResponseDTO<>(HttpStatus.OK.value(), "게시물 등록 완료");
+			    }
 }

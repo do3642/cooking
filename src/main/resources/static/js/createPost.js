@@ -60,7 +60,7 @@ function submitForm() {
             content: recipeForm.querySelector("textarea[name='content']").value,
             servings: recipeForm.querySelector("select[name='servings']").value,
             cookTime: recipeForm.querySelector("input[name='cookTime']").value,
-            cuisine: recipeForm.querySelector("select[name='cuisine']").value,
+            cuisineType: recipeForm.querySelector("select[name='cuisineType']").value,
             ingredients: [],
             steps: []
         };
@@ -94,6 +94,7 @@ function submitForm() {
             region: restaurantForm.querySelector("input[name='region']").value,
             thumbnail: restaurantForm.querySelector("input[name='thumbnail']").files[0]
         };
+	/*	console.log(postData.thumbnail);*/
     }
 
     // FormData 객체 생성

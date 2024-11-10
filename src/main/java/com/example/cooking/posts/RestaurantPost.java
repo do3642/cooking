@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.cooking.domain.Client;
 
@@ -38,8 +40,11 @@ public class RestaurantPost {
     @Column(nullable = false, length = 100)
     private String content; // 내용
 
+    @Transient // DB에 저장되지 않도록 설정
+    private MultipartFile thumbnail; // 썸네일 이미지 (실제 파일 객체)
+
     @Column(nullable = false)
-    private String thumbnail; // 썸네일 이미지
+    private String thumbnailFilename; // 저장된 파일명 (파일 시스템에 저장된 파일명)
 
     @Column(nullable = false, length = 100)
     private String storeName; // 상호명
