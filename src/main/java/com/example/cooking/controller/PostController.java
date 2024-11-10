@@ -5,18 +5,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.cooking.domain.Client;
+import com.example.cooking.dto.ResponseDTO;
 import com.example.cooking.posts.FreeBoardPost;
 import com.example.cooking.repository.UserRepository;
+import com.example.cooking.security.UserDetailsImpl;
 import com.example.cooking.service.PostService;
+import com.example.cooking.service.UserService;
 
 @Controller
 public class PostController {
@@ -25,7 +31,7 @@ public class PostController {
 	@Autowired
 	public PostService postService;
 	@Autowired
-	public UserRepository userRepository;
+	public UserService userService;
 	
 	
 	
@@ -80,35 +86,12 @@ public class PostController {
 	
 // 게시물 등록 맵핑
 		@PostMapping("/post/free")
-		public ResponseEntity<Map<String, String>> createFreePost(
-		    @RequestParam("title") String title,
-		    @RequestParam("content") String content,
-		    @RequestParam(value = "thumbnail", required = false) MultipartFile thumbnail,
-		    Principal principal) {
-		    
-		    // 로그인한 사용자 정보 가져오기
-		    Client client = userRepository.findByUsername(principal.getName())
-		        .orElseThrow(() -> new RuntimeException("유저정보가 없습니다."));
-
-		    // 게시물 데이터 처리 (예시로 제목과 내용만 저장)
-		    FreeBoardPost freePost = new FreeBoardPost();
-		    freePost.setTitle(title);
-		    freePost.setContent(content);
-		    freePost.setClient(client);
-		    
-		    // 썸네일 파일이 존재하면 저장 처리
-		    if (thumbnail != null && !thumbnail.isEmpty()) {
-		        // 파일 저장 로직 추가
-		    }
-		    
-		    // 게시물 저장
-		    postService.createFreePost(freePost, client);
-
-		    // JSON 응답 반환
-		    Map<String, String> response = new HashMap<>();
-		    response.put("message", "게시물이 등록되었습니다.");
-
-		    return ResponseEntity.ok(response);
+		@ResponseBody
+		public ResponseDTO<?> createFreePost(FreeBoardPost freePost,@AuthenticationPrincipal UserDetailsImpl principal) {
+				Client client = principal.getClient();
+				postService.createFreePost(freePost, client);
+				
+				return new ResponseDTO<>(HttpStatus.OK.value(),"게시물 등록 완료");
+				
 		}
-
 }

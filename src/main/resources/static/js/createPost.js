@@ -40,57 +40,89 @@ function addStep() {
 
 function submitForm() {
     const category = document.getElementById("category").value;
-    const data = new FormData();
+    let postData = {};
 
+    // 카테고리별 데이터 준비
     if (category === "free") {
         // 자유게시판 데이터
-        data.append("title", document.querySelector("#free-form input[name='title']").value);
-        data.append("content", document.querySelector("#free-form textarea[name='content']").value);
+        postData = {
+            category: category,
+            title: document.querySelector("input[name='title']").value,
+            content: document.querySelector("textarea[name='content']").value
+        };
     } else if (category === "recipe") {
         // 레시피 데이터
-        data.append("thumbnail", document.querySelector("#recipe-form input[name='thumbnail']").files[0]);
-        data.append("title", document.querySelector("#recipe-form input[name='title']").value);
-        data.append("content", document.querySelector("#recipe-form textarea[name='content']").value);
-        data.append("servings", document.querySelector("#recipe-form select[name='servings']").value);
-        data.append("cookTime", document.querySelector("#recipe-form input[name='cookTime']").value);
-        data.append("cuisine", document.querySelector("#recipe-form select[name='cuisine']").value);
+        postData = {
+            category: category,
+            title: document.querySelector("input[name='title']").value,
+            content: document.querySelector("textarea[name='content']").value,
+            thumbnail: document.querySelector("input[name='thumbnail']").files[0], // 파일 처리
+            servings: document.querySelector("select[name='servings']").value,
+            cookTime: document.querySelector("input[name='cookTime']").value,
+            cuisine: document.querySelector("select[name='cuisine']").value,
+            ingredients: [],
+            steps: []
+        };
 
-        // 재료 데이터 추가
-        const ingredientNames = document.querySelectorAll("#recipe-form input[name='ingredientName[]']");
-        const ingredientAmounts = document.querySelectorAll("#recipe-form input[name='ingredientAmount[]']");
-        ingredientNames.forEach((nameInput, index) => {
-            data.append(`ingredients[${index}][name]`, nameInput.value);
-            data.append(`ingredients[${index}][amount]`, ingredientAmounts[index].value);
-        });
+        // 재료 추가
+        const ingredients = document.querySelectorAll("input[name='ingredientName[]']");
+        for (let i = 0; i < ingredients.length; i++) {
+            postData.ingredients.push({
+                name: ingredients[i].value,
+                amount: document.querySelectorAll("input[name='ingredientAmount[]']")[i].value
+            });
+        }
 
-        // 조리 순서 데이터 추가
-        const steps = document.querySelectorAll("#recipe-form input[name='steps[]']");
-        steps.forEach((stepInput, index) => {
-            data.append(`steps[${index}]`, stepInput.value);
-        });
+        // 조리 순서 추가
+        const steps = document.querySelectorAll("input[name='steps[]']");
+        for (let i = 0; i < steps.length; i++) {
+            postData.steps.push(steps[i].value);
+        }
+
     } else if (category === "restaurant") {
         // 맛집 추천 데이터
-        data.append("thumbnail", document.querySelector("#restaurant-form input[name='thumbnail']").files[0]);
-        data.append("storeName", document.querySelector("#restaurant-form input[name='storeName']").value);
-        data.append("region", document.querySelector("#restaurant-form input[name='region']").value);
-        data.append("title", document.querySelector("#restaurant-form input[name='title']").value);
-        data.append("content", document.querySelector("#restaurant-form textarea[name='content']").value);
+        postData = {
+            category: category,
+            title: document.querySelector("input[name='title']").value,
+            content: document.querySelector("textarea[name='content']").value,
+            storeName: document.querySelector("input[name='storeName']").value,
+            region: document.querySelector("input[name='region']").value,
+            thumbnail: document.querySelector("input[name='thumbnail']").files[0] // 파일 처리
+        };
     }
 
-    // fetch 요청
-    fetch(`/post/${category}`, {
-        method: "POST",
-        body: data,
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("성공:", data);
-		console.log("보낸 데이터:", data.data);
-    })
-    .catch(error => {
-        console.error("오류:", error);
+    // FormData 객체 생성
+    const formData = new FormData();
+    for (const key in postData) {
+        if (postData[key] instanceof File) {
+            formData.append(key, postData[key]); // 파일 추가
+        } else if (Array.isArray(postData[key])) {
+            postData[key].forEach((item, index) => {
+                formData.append(`${key}[${index}]`, JSON.stringify(item)); // 배열 데이터 처리
+            });
+        } else {
+            formData.append(key, postData[key]); // 일반 데이터 추가
+        }
+    }
+
+    // AJAX 요청
+    $.ajax({
+        type: "POST",
+        url: `/post/${category}`,
+        data: formData,
+        contentType: false,  // 파일 전송을 위한 설정
+        processData: false,  // 데이터가 JSON이 아니므로 자동 변환 방지
+        success: function(response) {
+            alert('게시물 등록 성공!');
+            console.log('응답 데이터:', response);
+            if (response.status === 200) {
+                location.href = "/";
+            }
+        },
+        error: function(error) {
+            console.error("게시물 등록 오류:", error);
+            alert("게시물 등록에 실패했습니다.");
+        }
     });
 }
-
-
 

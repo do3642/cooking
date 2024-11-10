@@ -3,6 +3,7 @@
 <%@ include file="../layout/basics.jsp" %>
 <title>요리연구소 게시물작성</title>
 <link rel="stylesheet" href="/css/createPost.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <%@ include file="../layout/header.jsp" %>
 <section class="visual-content">
