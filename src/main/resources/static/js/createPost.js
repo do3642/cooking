@@ -44,79 +44,86 @@ function submitForm() {
 
     // 카테고리별 데이터 준비
     if (category === "free") {
-        // 자유게시판 데이터
+        // 자유게시판 폼에서 데이터 가져오기
+        const freeForm = document.getElementById("free-form");
         postData = {
             category: category,
-            title: document.querySelector("input[name='title']").value,
-            content: document.querySelector("textarea[name='content']").value
+            title: freeForm.querySelector("input[name='title']").value,
+            content: freeForm.querySelector("textarea[name='content']").value
         };
     } else if (category === "recipe") {
-        // 레시피 데이터
+        // 레시피 폼에서 데이터 가져오기
+        const recipeForm = document.getElementById("recipe-form");
         postData = {
             category: category,
-            title: document.querySelector("input[name='title']").value,
-            content: document.querySelector("textarea[name='content']").value,
-            thumbnail: document.querySelector("input[name='thumbnail']").files[0], // 파일 처리
-            servings: document.querySelector("select[name='servings']").value,
-            cookTime: document.querySelector("input[name='cookTime']").value,
-            cuisine: document.querySelector("select[name='cuisine']").value,
+            title: recipeForm.querySelector("input[name='title']").value,
+            content: recipeForm.querySelector("textarea[name='content']").value,
+            servings: recipeForm.querySelector("select[name='servings']").value,
+            cookTime: recipeForm.querySelector("input[name='cookTime']").value,
+            cuisine: recipeForm.querySelector("select[name='cuisine']").value,
             ingredients: [],
             steps: []
         };
 
         // 재료 추가
-        const ingredients = document.querySelectorAll("input[name='ingredientName[]']");
+        const ingredients = recipeForm.querySelectorAll("input[name='ingredientName[]']");
         for (let i = 0; i < ingredients.length; i++) {
             postData.ingredients.push({
                 name: ingredients[i].value,
-                amount: document.querySelectorAll("input[name='ingredientAmount[]']")[i].value
+                amount: recipeForm.querySelectorAll("input[name='ingredientAmount[]']")[i].value
             });
         }
 
         // 조리 순서 추가
-        const steps = document.querySelectorAll("input[name='steps[]']");
+        const steps = recipeForm.querySelectorAll("input[name='steps[]']");
         for (let i = 0; i < steps.length; i++) {
             postData.steps.push(steps[i].value);
         }
 
+        // 썸네일 파일 처리 (파일 추가)
+        const thumbnail = recipeForm.querySelector("input[name='thumbnail']").files[0];
+        postData.thumbnail = thumbnail;
     } else if (category === "restaurant") {
-        // 맛집 추천 데이터
+        // 맛집추천 폼에서 데이터 가져오기
+        const restaurantForm = document.getElementById("restaurant-form");
         postData = {
             category: category,
-            title: document.querySelector("input[name='title']").value,
-            content: document.querySelector("textarea[name='content']").value,
-            storeName: document.querySelector("input[name='storeName']").value,
-            region: document.querySelector("input[name='region']").value,
-            thumbnail: document.querySelector("input[name='thumbnail']").files[0] // 파일 처리
+            title: restaurantForm.querySelector("input[name='title']").value,
+            content: restaurantForm.querySelector("textarea[name='content']").value,
+            storeName: restaurantForm.querySelector("input[name='storeName']").value,
+            region: restaurantForm.querySelector("input[name='region']").value,
+            thumbnail: restaurantForm.querySelector("input[name='thumbnail']").files[0]
         };
     }
 
     // FormData 객체 생성
     const formData = new FormData();
+
+    // 파일과 일반 데이터를 함께 전송하기 위해 FormData에 추가
     for (const key in postData) {
         if (postData[key] instanceof File) {
-            formData.append(key, postData[key]); // 파일 추가
+            formData.append(key, postData[key]); // 파일 처리
         } else if (Array.isArray(postData[key])) {
             postData[key].forEach((item, index) => {
-                formData.append(`${key}[${index}]`, JSON.stringify(item)); // 배열 데이터 처리
+                formData.append(`${key}[${index}]`, JSON.stringify(item)); // 배열을 JSON 형식으로 추가
             });
         } else {
-            formData.append(key, postData[key]); // 일반 데이터 추가
+            formData.append(key, postData[key]); // 일반 데이터
         }
     }
 
     // AJAX 요청
     $.ajax({
         type: "POST",
-        url: `/post/${category}`,
+        url: `/post/${category}`, // 적절한 URL로 요청
         data: formData,
-        contentType: false,  // 파일 전송을 위한 설정
-        processData: false,  // 데이터가 JSON이 아니므로 자동 변환 방지
+        contentType: false, // contentType을 false로 설정해 파일을 전송하도록 함
+        processData: false, // 데이터 처리 방식을 자동으로 처리하도록 설정
         success: function(response) {
             alert('게시물 등록 성공!');
             console.log('응답 데이터:', response);
             if (response.status === 200) {
-                location.href = "/";
+                location.href = "/"; // 성공 시 홈으로 리디렉션
             }
         },
         error: function(error) {
@@ -125,4 +132,5 @@ function submitForm() {
         }
     });
 }
+
 

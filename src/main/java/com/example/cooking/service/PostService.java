@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.cooking.domain.Client;
 import com.example.cooking.posts.FreeBoardPost;
+import com.example.cooking.posts.RecipePost;
 import com.example.cooking.repository.FreePostRepository;
 import com.example.cooking.repository.RecipePostRepository;
 import com.example.cooking.repository.RestaurantPostRepository;
@@ -32,6 +33,14 @@ public class PostService {
 		free.setClient(client);
 		
 		return freePostRepository.save(free);
+		
+	}
+	
+	public RecipePost createRecipePost(RecipePost recipe, Client client) {
+		
+		recipe.setClient(client);
+		
+		return recipePostRepository.save(recipe);
 		
 	}
 }

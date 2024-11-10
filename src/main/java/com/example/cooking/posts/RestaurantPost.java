@@ -30,6 +30,9 @@ public class RestaurantPost {
     private int id; // 게시글 고유번호
 
     @Column(nullable = false, length = 100)
+    private String category; // 카테고리
+    
+    @Column(nullable = false, length = 100)
     private String title; // 제목
 
     @Column(nullable = false, length = 100)

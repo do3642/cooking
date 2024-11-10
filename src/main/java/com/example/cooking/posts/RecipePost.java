@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,8 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.cooking.domain.Client;
 
@@ -31,8 +34,14 @@ public class RecipePost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // 게시글 고유번호
 
+    @Column(nullable = false, length = 100)
+    private String category; // 카테고리
+    
+    @Transient // DB에 저장되지 않도록 설정
+    private MultipartFile thumbnail; // 썸네일 이미지 (실제 파일 객체)
+
     @Column(nullable = false)
-    private String thumbnail; // 썸네일 이미지
+    private String thumbnailFilename; // 저장된 파일명 (파일 시스템에 저장된 파일명)
 
     @Column(nullable = false, length = 100)
     private String title; // 제목
@@ -65,4 +74,23 @@ public class RecipePost {
     
     @Column(nullable = false)
     private int recommendationCount = 0; // 추천 수
+    
+    // 재료와 조리 순서를 RecipePost와 함께 저장
+    @ElementCollection
+    private List<String> ingredients; // 재료 목록 (예: ["재료1", "재료2"])
+
+    @ElementCollection
+    private List<String> steps; // 조리 방법 목록 (예: ["조리 순서 1", "조리 순서 2"])
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
