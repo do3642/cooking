@@ -114,7 +114,7 @@
                             <div>
                                 <a href="#"><img src="./img/store1.jpg" alt="이달의맛집 이미지"></a>
                                 <p>
-                                    <a href="#">상호명</a>
+                                    <a href="#">상호명1</a>
                                     <span>지역</span>
                                 </p>
                             </div>
