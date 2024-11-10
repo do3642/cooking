@@ -157,47 +157,99 @@
     transition: transform 0.5s ease; 
 }
 
-.side-content .premium-store .premium-list .premium-title{
+/* 상호명과 지역명을 담는 박스 스타일 */
+.side-content .premium-store .premium-list .premium-title {
     font-family: 'Pretendard-Regular';
     font-size: 14px;
-    display: flex;
+    display: flex; /* Flexbox 사용 */
     justify-content: space-between;
-    padding: 3px 2px;
-   
-    
-}
-.side-content .premium-store .premium-list .premium-title span{
-    font-family: inherit;
-    font-size: inherit;
-    text-overflow: ellipsis; 
-    width: 100px;
-}
-.side-content .premium-store .premium-list .premium-title small{
-    font-family: inherit;
-    font-size: inherit;
+    padding: 5px 0;
+    align-items: center; /* 수직 정렬 */
 }
 
-.side-content .premium-store .premium-list figure{}
+/* 상호명 박스 */
+.side-content .premium-store .premium-list .premium-title span {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block; /* 수평으로 배치 */
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* 텍스트가 한 줄로 유지되게 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+}
+
+/* 지역명에 대한 스타일 */
+.side-content .premium-store .premium-list .premium-title small {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 5px 10px;
+    border-radius: 10px; /* 모서리 둥글게 */
+    background-color: #A52A2A; /* 기본 색상 */
+    color: #fff; /* 글자 색상 */
+    transition: background-color 0.3s ease; /* 색상 전환 효과 */
+}
+
+.side-content .premium-store .premium-list .card:nth-child(odd) .premium-title small {
+    background-color: #8A2BE2; /* 블루벨벳 */
+}
+
+.side-content .premium-store .premium-list .card:nth-child(even) .premium-title small {
+    background-color: #FFD700; /* 골드 */
+}
+
+.side-content .premium-store .premium-list .card:nth-child(3) .premium-title small {
+    background-color: #32CD32; /* 라임그린색 */
+}
+
+.side-content .premium-store .premium-list .card:nth-child(4) .premium-title small {
+    background-color: #FF6347; /* 토마토색 */
+}
+
+/* 카드 스타일 */
+.side-content .premium-store .premium-list .card {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 카드 이미지 */
+.side-content .premium-store .premium-list figure {
+    margin-bottom: 15px;
+}
+
 .side-content .premium-store .premium-list figure a{}
-.side-content .premium-store .premium-list figure a img{
+.side-content .premium-store .premium-list figure a img {
     display: block;
     width: 100%;
     aspect-ratio: 7 / 4;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     object-fit: cover;
     border-radius: 10px;
-    object-position: 50% 30%;
-}
-.side-content .premium-store .premium-list figure figcaption{
-    color: #666;
-    font-family: 'Pretendard-Regular';
-    display: -webkit-box;            /* Flexbox를 사용하여 줄바꿈을 허용 */
-    -webkit-box-orient: vertical;    /* 수직 정렬 */
-    -webkit-line-clamp: 3;           /* 원하는 줄 수 설정 */
-    line-clamp: 3;
-    overflow: hidden;                /* 넘치는 텍스트 숨김 */
-    text-overflow: ellipsis;         /* 마지막 줄에 ... 처리 */
-    white-space: normal;             /* 자동 줄바꿈 허용 */
-    
 }
 
+/* 카드 설명 */
+.side-content .premium-store .premium-list figure figcaption {
+    color: #666;
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+    -webkit-line-clamp: 4; /* 4줄로 제한 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+
+/* 카드 호버 효과 */
+.side-content .premium-store .premium-list .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 15px;
+    transform: translateY(-5px); /* 약간 떠오르는 효과 */
+}
