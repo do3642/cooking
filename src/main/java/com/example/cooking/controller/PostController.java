@@ -6,10 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.cooking.domain.Client;
+import com.example.cooking.dto.PageDTO;
 import com.example.cooking.dto.ResponseDTO;
 import com.example.cooking.posts.FreeBoardPost;
 import com.example.cooking.posts.RecipePost;
@@ -54,10 +60,23 @@ public class PostController {
 	
 // 게시판들 맵핑
 	// 게시물 작성 페이지 이동
+//		@GetMapping("/board/freeBoard")
+//		public String freeBoard() {
+//			return "/post/freeBoard";
+//		}
+//		
 		@GetMapping("/board/freeBoard")
-		public String freeBoard() {
+		public String getFreePostList(Model model, @PageableDefault(size=7,sort="id",direction = Direction.DESC) Pageable pageable) {
+			
+			Page<FreeBoardPost> postList = postService.getPostList(pageable);
+			
+			// html로 데이터를 보내기 위한 모델객체
+			model.addAttribute("postList", postList);
+			model.addAttribute("pageDTO", new PageDTO(postList));
+			
 			return "/post/freeBoard";
 		}
+		
 		
 		// 게시물 작성 페이지 이동
 		@GetMapping("/board/koreanBoard")

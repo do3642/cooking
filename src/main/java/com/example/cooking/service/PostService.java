@@ -1,7 +1,10 @@
 package com.example.cooking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cooking.domain.Client;
 import com.example.cooking.posts.FreeBoardPost;
@@ -27,7 +30,7 @@ public class PostService {
 	@Autowired
 	public UserRepository userRepository;
 	
-//	게시물 저장
+// 자유 게시물 저장
 	
 	public FreeBoardPost createFreePost(FreeBoardPost free, Client client) {
 		
@@ -36,7 +39,7 @@ public class PostService {
 		return freePostRepository.save(free);
 		
 	}
-	
+// 레시피 게시물 저장
 	public RecipePost createRecipePost(RecipePost recipe, Client client) {
 		
 		recipe.setClient(client);
@@ -52,4 +55,14 @@ public class PostService {
         
         return restaurantPostRepository.save(restaurantPost);
     }
+    
+    
+	// 게시물DB 리스트 형태로 전체 리턴
+	@Transactional(readOnly = true)
+	public Page<FreeBoardPost> getPostList(Pageable pageable){
+		
+			return freePostRepository.findAll(pageable);
+		}
+	
+	
 }

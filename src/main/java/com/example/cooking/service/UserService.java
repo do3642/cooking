@@ -37,4 +37,11 @@ public class UserService {
 			return findUser;
 			
 		}
+		
+		
+// 더미데이터 중복발생안하게 닉네임 검색
+	  public Client findByNickname(String nickname) {
+	        return userRepository.findByNickname(nickname).orElse(null);
+	  }
+		
 }

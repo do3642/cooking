@@ -12,6 +12,6 @@ import com.example.cooking.domain.Client;
 public interface UserRepository extends JpaRepository<Client, Integer>{
 
 	Optional<Client> findByUsername(String username);
-	
+	Optional<Client> findByNickname(String nickname);
 	
 }
