@@ -97,7 +97,7 @@
                 <li>
                     <small>${post.client.nickname}</small> <!-- 작성자 표시 -->
                     <strong>${post.title}</strong> <!-- 제목 표시 -->
-                    <a href="/post/${post.id}">상세보기</a> <!-- 상세보기 링크 -->
+                    <a href="/board/freeBoard/${post.id}">상세보기</a> <!-- 상세보기 링크 -->
                 </li>
             </ul>
         </c:forEach>

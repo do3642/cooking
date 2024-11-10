@@ -95,6 +95,8 @@ public class PostController {
 		
 		
 		
+		
+		
 		// 한식 게시판
 		@GetMapping("/board/koreanBoard")
 		public String koreanBoard() {

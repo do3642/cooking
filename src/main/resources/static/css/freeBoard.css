@@ -80,38 +80,65 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    gap: 10px;
-}
-
-.pagination .prev-page, .pagination .next-page {
-    padding: 10px 20px;
-    background-color: #a36f96; /* 요리 포럼 색상 */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.pagination .prev-page:hover, .pagination .next-page:hover {
-    background-color: #7f5075;
+    gap: 12px;
 }
 
 /* 페이지 번호 */
-.pagination .page-number {
+.pagination a {
+    padding: 8px 16px;
     font-size: 16px;
-    color: #5c3d6c; /* 요리 포럼 색상 */
+    color: #5c3d6c;
+    background-color: #f6f7fb;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* 페이지 번호 활성화 효과 */
-.pagination .page-number.active {
+.pagination a.active {
     font-weight: bold;
-    color: #a36f96; /* 선택된 페이지 색상 */
+    background-color: #a36f96;
+    color: white;
 }
 
-/* 페이지 번호의 클릭 가능 효과 */
-.pagination .page-number:hover {
-    text-decoration: underline;
+/* 페이지 번호 hover 효과 */
+.pagination a:hover {
+    background-color: #e9d4d8;
+}
+
+/* 비활성화된 페이지 링크 스타일 */
+.pagination a.disabled {
+    color: #ddd;
+    cursor: default;
+}
+
+/* 이전, 다음 그룹 버튼 */
+.pagination .prev-group, .pagination .next-group {
+    padding: 12px 25px;
+    background-color: #a36f96;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px;
+}
+
+/* 이전, 다음 그룹 버튼 hover 효과 */
+.pagination .prev-group:hover, .pagination .next-group:hover {
+    background-color: #7f5075;
+    transform: translateY(-2px); /* 살짝 올라오는 효과 */
+}
+
+.pagination .prev-group:focus, .pagination .next-group:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(163, 111, 150, 0.5); /* 포커스 시 효과 */
+}
+
+/* 페이지 번호가 5개 이상일 때 이전 그룹, 다음 그룹 표시 */
+.pagination .prev-group, .pagination .next-group {
+    font-weight: bold;
 }
 
 /* 반응형 디자인 */
@@ -126,31 +153,16 @@
     margin-bottom: 10px;
 }
 
-/* 최대 5개 페이지 번호만 보여주기 */
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 5px;
 }
 
-.pagination .page-number {
-    padding: 5px 10px;
-    background-color: #f6f7fb;
-    border-radius: 5px;
-    color: #5c3d6c;
+/* 페이지 번호의 추가 스타일 */
+.pagination .page-number.active:hover {
+    text-decoration: none;
+    background-color: #7f5075; /* 활성화된 페이지의 호버 효과 */
 }
 
-.pagination .page-number.active {
-    background-color: #a36f96; /* 선택된 페이지 색상 */
-    color: white;
-}
-
-.pagination .page-number.disabled {
-    color: #ddd;
-}
-
-/* 페이지 번호가 5개 이상일 때 더보기 버튼 표시 */
 .pagination .more-pages {
     color: #a36f96;
     font-weight: bold;
