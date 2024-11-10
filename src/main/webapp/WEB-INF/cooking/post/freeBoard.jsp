@@ -33,7 +33,7 @@
 	<c:forEach var ="post" items="${postList.content}"><!--var는 작명의 영역/변수명임 -->
         <div class="post-item">
             <div class="title-info">
-                <a href="detail.jsp" class="post-link">
+                <a href="/board/freeBoard/${post.id}" class="post-link">
                     <span class="post-title">${post.title }</span>
                     <span class="comment-count">댓글 ${fn:length(post.comments)}개</span>
                 </a>

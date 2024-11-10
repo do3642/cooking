@@ -79,4 +79,9 @@ public class UserDetailsImpl implements UserDetails{
 		return true;
 	}
 
+	
+	public String getNickname() {
+        return client.getNickname(); // 닉네임 반환
+    }
+
 }

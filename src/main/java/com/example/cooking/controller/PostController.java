@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,6 +66,10 @@ public class PostController {
 //			return "/post/freeBoard";
 //		}
 //		
+	
+	
+	
+	// 자유게시판
 		@GetMapping("/board/freeBoard")
 		public String getFreePostList(Model model, @PageableDefault(size=7,sort="id",direction = Direction.DESC) Pageable pageable) {
 			
@@ -77,8 +82,20 @@ public class PostController {
 			return "/post/freeBoard";
 		}
 		
+		@GetMapping("/board/freeBoard/{id}")
+		public String getPost(@PathVariable int id, Model model) {
+			FreeBoardPost post = postService.getPost(id);
+			
+			model.addAttribute("post",post);
+			
+			return  "/post/detail/free";
+		}
 		
-		// 게시물 작성 페이지 이동
+		
+		
+		
+		
+		// 한식 게시판
 		@GetMapping("/board/koreanBoard")
 		public String koreanBoard() {
 			return "/post/koreanBoard";

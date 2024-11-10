@@ -20,5 +20,7 @@ public interface FreePostRepository extends JpaRepository<FreeBoardPost, Integer
     // 특정 게시글 조회
     Optional<FreeBoardPost> findById(Integer id);
     
-
+    // 추천수 내림차순으로 상위 5개 게시물 가져오기
+    List<FreeBoardPost> findTop5ByOrderByRecommendationCountDesc();
+    
 }

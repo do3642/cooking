@@ -68,66 +68,42 @@
                 <!-- 작성자,제목만 보이는 게시판과 가게추천-->
                 <article class="new-content">
                     <!-- 게시판리스트 -->
-                    <div class="favorite-recipe">
-                        <h3>인기 레시피</h3>
-                        <div class="favorite-list">
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
-                                    <span>1401</span>
-                                </li>
-                                <li>
-                                    <small>작성자</small>
-                                    <strong>제목</strong>
-                                    <a href="">상세보기</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-heart" style="color: #FFD43B;"></i>
-                                    <span>1401</span>
-                                </li>
-                                <li>
-                                    <small>작성자</small>
-                                    <strong>제목</strong>
-                                    <a href="">상세보기</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-heart" style="color: #63E6BE;"></i>
-                                    <span>1401</span>
-                                </li>
-                                <li>
-                                    <small>작성자</small>
-                                    <strong>제목</strong>
-                                    <a href="">상세보기</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-heart" style="color: #e66586;"></i>
-                                    <span>1401</span>
-                                </li>
-                                <li>
-                                    <small>작성자</small>
-                                    <strong>제목</strong>
-                                    <a href="">상세보기</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-heart" style="color: #B197FC;"></i>
-                                    <span>1401</span>
-                                </li>
-                                <li>
-                                    <small>작성자</small>
-                                    <strong>제목</strong>
-                                    <a href="">상세보기</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+ <div class="favorite-recipe">
+    <h3>인기 레시피</h3>
+    <div class="favorite-list">
+        <c:forEach var="post" items="${popularPosts}" varStatus="status">
+            <ul>
+                <li>
+                    <!-- 인덱스에 따라 색상 지정 -->
+                    <c:choose>
+                        <c:when test="${status.index % 5 == 0}">
+                            <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
+                        </c:when>
+                        <c:when test="${status.index % 5 == 1}">
+                            <i class="fa-solid fa-heart" style="color: #FFD43B;"></i>
+                        </c:when>
+                        <c:when test="${status.index % 5 == 2}">
+                            <i class="fa-solid fa-heart" style="color: #63E6BE;"></i>
+                        </c:when>
+                        <c:when test="${status.index % 5 == 3}">
+                            <i class="fa-solid fa-heart" style="color: #e66586;"></i>
+                        </c:when>
+                        <c:otherwise>
+                            <i class="fa-solid fa-heart" style="color: #B197FC;"></i>
+                        </c:otherwise>
+                    </c:choose>
+                    <span>${post.recommendationCount}</span> <!-- 추천수 표시 -->
+                </li>
+                <li>
+                    <small>${post.client.nickname}</small> <!-- 작성자 표시 -->
+                    <strong>${post.title}</strong> <!-- 제목 표시 -->
+                    <a href="/post/${post.id}">상세보기</a> <!-- 상세보기 링크 -->
+                </li>
+            </ul>
+        </c:forEach>
+    </div>
+</div>
+
                     <!-- 이달의 맛집 -->
                     <div class="store">
                         <div class="store-title">
