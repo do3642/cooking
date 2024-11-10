@@ -107,7 +107,7 @@
                     <!-- 이달의 맛집 -->
                     <div class="store">
                         <div class="store-title">
-                            <h4>이달의 맛집</h4>
+                            <h4>이달의 맛집1</h4>
                             <a href="#">+더보기</a>
                         </div>
                         <div class="store-list">
